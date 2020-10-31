@@ -6,10 +6,6 @@
 
 <script>
   export default {
-    name: 'App',
+    name: 'AdminApp',
   };
 </script>
-
-<style lang="scss">
-  @import '../sass/app';
-</style>

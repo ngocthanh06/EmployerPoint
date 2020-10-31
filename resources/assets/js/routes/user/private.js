@@ -1,10 +1,17 @@
-import example from '../../components/ExampleComponent';
+import AdminApp from '../../pages/admin/App.vue';
+import demo from '../../components/ExampleComponent.vue';
 
 const routes = [
   {
-      path: '/home',
-      name: 'app',
-      component: example,
+    path: '/admin',
+    component: AdminApp,
+    children: [
+      {
+        path: 'demo',
+        component: demo,
+        name: 'demo'
+      }
+    ]
   }
 ];
 

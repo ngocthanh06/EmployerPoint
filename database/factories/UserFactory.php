@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Enums\RoleStatus;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => 'demo@example.com',
         'password' => bcrypt('123123'),
+        'role_id' => RoleStatus::ADMIN,
         'remember_token' => str_random(10),
         'phone' => $faker->phoneNumber,
         'username' => $faker->userName,
