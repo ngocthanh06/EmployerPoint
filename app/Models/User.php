@@ -19,12 +19,7 @@ class User extends Authenticatable implements JWTSubject
         'role_id',
         'name',
         'email',
-        'password',
-        'phone',
-        'username',
-        'first_name',
-        'last_name',
-        'gender'
+        'password'
     ];
 
     /**
@@ -44,6 +39,11 @@ class User extends Authenticatable implements JWTSubject
     public function point()
     {
         return $this->hasMany(Point::class);
+    }
+
+    public function userProfile()
+    {
+        $this->hasOne(UserProfile::class);
     }
 
     public function getJWTIdentifier()

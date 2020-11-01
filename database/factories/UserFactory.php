@@ -16,14 +16,9 @@ use App\Enums\RoleStatus;
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
         'email' => 'demo@example.com',
         'password' => bcrypt('123123'),
         'role_id' => RoleStatus::ADMIN,
         'remember_token' => str_random(10),
-        'phone' => $faker->phoneNumber,
-        'username' => $faker->userName,
-        'first_name' => $faker->firstNameMale,
-        'last_name' => $faker->lastName
     ];
 });
