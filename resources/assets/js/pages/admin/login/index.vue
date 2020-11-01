@@ -5,14 +5,36 @@ export default {
 
   data() {
     return {
-      email: '',
-      password: ''
+      ruleForm: {
+        email: '',
+        password: ''
+      },
+
+      rules: {
+          // email: [
+          //   { required: true, message: 'Please input email', trigger: 'blur' },
+          //   { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
+          // ],
+          // password: [
+          //   { required: true, message: 'Please input password', trigger: 'blur' },
+          // ]
+        }
     }
   },
 
   methods: {
+    submitLogin(e) {
+      this.$refs['formData'].validate((valid) => {
+        if (valid) {
+          this.login();
+        } else {
+          return false;
+        }
+      });
+    },
+
     login() {
-      
+      this.$store.dispatch( 'adminAuth/authenticate', this.ruleForm );
     }
   },
 
