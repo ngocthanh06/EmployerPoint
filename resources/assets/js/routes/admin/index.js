@@ -4,10 +4,10 @@ import privateRoutes from './private.js';
 
 const userRoutes = publicRoutes.concat(privateRoutes);
 const routes = [
-  // { 
-  //   path: '*', 
-  //   redirect: 'admin/404' 
-  // },
+  { 
+    path: '*',
+    redirect: 'admin/404'
+  },
 ];
 
 const router = new VueRouter({

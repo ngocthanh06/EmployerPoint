@@ -1,15 +1,15 @@
 <template>
   <div>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Admin',
+    name: 'App',
   };
 </script>
 
-<style lang="sass">
+<style lang="scss">
   @import '../sass/app';
 </style>

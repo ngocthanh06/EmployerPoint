@@ -3,15 +3,10 @@ import login from '../../pages/user/login';
 
 const routes = [
   {
-    path: '/login',
+    path: '/admin/login',
     name: 'login',
-    component: login  
+    component: login
   },
-  {
-      path: '/home',
-      name: 'app',
-      component: example,
-  }
 ];
 
 export default routes.map(route => {

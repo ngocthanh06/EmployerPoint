@@ -3,9 +3,9 @@ import login from '../../pages/admin/login';
 
 const routes = [
   {
-    path: '/login',
+    path: '/admin/login',
     name: 'login',
-    component: login  
+    component: login
   },
   {
     path: '/homes',
