@@ -8,6 +8,7 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router';
 import router from './routes/admin';
+import store from './store/admin';
 import App from './Admin.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -33,6 +34,6 @@ const admin = new Vue({
     el: '#admin',
     router,
     components: { App },
-    // store,
+    store,
     template: '<App></App>'
 });
