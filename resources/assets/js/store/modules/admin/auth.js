@@ -1,4 +1,5 @@
 import { APP_AUTH_ADMIN } from '../../../config';
+import { transError } from '../../modules/helpers';
 import axios from 'axios';
 
 const state = {
@@ -24,11 +25,21 @@ const mutations = {
 }
 
 const actions = {
-  authenticate(context, { data }) {
-    axios.post('/api/login', data)
-    .then((response) => {
-        console.log(response);
+  authenticate(context, formInput) {
+    axios.post('login', formInput)
+    .then(({ data }) => {
+      if (!data.access_token) {
+        return false;
+      }
+
+      let { access_token: token, admin, code } = data;
+      context.commit('setIsAuthenticate', true);
+      context.commit('setAdmin', admin);
+      localStorage.setItem(APP_AUTH_ADMIN, token);
+
+      return true;
     })
+
   }
 }
 

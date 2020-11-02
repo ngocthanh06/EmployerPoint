@@ -11,6 +11,8 @@
 
 return [
 
+    'prefix_token' => 'Bearer ',
+    
     /*
     |--------------------------------------------------------------------------
     | JWT Authentication Secret
