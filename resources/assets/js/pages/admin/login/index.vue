@@ -35,6 +35,7 @@ export default {
 
     login() {
       this.$store.dispatch( 'adminAuth/authenticate', this.ruleForm );
+      
     }
   },
 
