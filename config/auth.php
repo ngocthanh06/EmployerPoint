@@ -35,6 +35,11 @@ return [
     |
     */
 
+    'guard_type' => [
+        'user' => env('MIX_AUTH_USER', 'user'),
+        'admin' => env('MIX_AUTH_ADMIN', 'admin')
+    ],
+
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -45,6 +50,18 @@ return [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
+
+        'user' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            'hash' => 'false',
+        ],
+
+        'admin' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            'hash' => 'false',
+        ]
     ],
 
     /*
@@ -67,7 +84,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [

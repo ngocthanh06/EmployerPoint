@@ -3,7 +3,7 @@ import demo from '../../components/ExampleComponent.vue';
 
 const routes = [
   {
-    path: '/admin',
+    path: '/',
     component: AdminApp,
     children: [
       {
