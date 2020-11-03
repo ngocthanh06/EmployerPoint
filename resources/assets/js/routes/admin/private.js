@@ -1,12 +1,18 @@
-import example from '../../components/ExampleComponent';
-import side from '../../pages/admin/layouts/sidebar';
+import content from '../../pages/admin/layouts/content';
+import listUser from '../../pages/admin/listUser/index.vue';
 
 const routes = [
   {
-    path: '/admin/test',
-    name: 'side',
-    component: side,
-  }
+    path: '/admin',
+    component: content,
+    children: [
+      {
+        path: 'list-user',
+        name: 'ListUser',
+        component: listUser
+      }
+    ]
+  },
 ];
 
 export default routes.map(route => {

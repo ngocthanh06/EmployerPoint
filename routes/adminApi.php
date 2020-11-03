@@ -18,6 +18,6 @@ Route::group([ 'namespace' => 'Admin' ], function () {
     Route::post('login', 'AuthController@login');
 });
 
-Route::group([ 'namespace' => 'Admin', 'middleware' => 'auth.admin'], function () {
-    Route::get('demo', 'AdminController@index');
+Route::group([ 'namespace' => 'Admin', 'middleware' => 'auth.admin', 'prefix' => 'api'], function () {
+    Route::get('list-user', 'AdminController@listUser');
 });
