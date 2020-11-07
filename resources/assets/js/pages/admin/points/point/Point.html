@@ -1,0 +1,51 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Points</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Points</h6>
+        </div>
+        <div class="card-body point">
+          <div class="table-responsive">
+            <p class="point--errors" v-if="checkPoint">User score has not been scored</p>
+            <p v-else>
+                <p class="point--success" v-if="infomation.user || infomation.criteria_id">
+                    email: {{ infomation.user.email }} - status: {{ infomation.criteria_id.criterias_name }} - scored: {{ infomation.criteria_id.point }}
+                </p>
+            </p>
+            <div class="block">
+                <span class="demonstration">Choose Date</span>
+                <el-date-picker
+                    v-model="datePicked"
+                    type="date"
+                    format="yyyy-MM-dd"
+                    value-format="yyyy-MM-dd"
+                    placeholder="Pick a day">
+                </el-date-picker>
+                <el-button type="primary" @click="getPoint()">Show</el-button>
+            </div>
+          </div>
+        <div v-if="checkPoint">
+          <div class="criterias">
+            <span class="demonstration">Choose Criterias</span>
+            <el-select v-model="criteria_id" placeholder="Select">
+                <el-option
+                    v-for="item in options"
+                        :key="item.id"
+                        :label="item.criterias_name"
+                        :value="item.id">
+                </el-option>
+            </el-select>
+            <span class="demonstration" v-if="point">{{ point }} points</span>
+            </div>
+            <el-button type="success" @click="successPoint()">Point</el-button>
+        </div>
+        </div>
+        
+      </div>
+  </div>
+  <!-- /.container-fluid -->

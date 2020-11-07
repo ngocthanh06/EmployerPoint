@@ -19,6 +19,6 @@ class Points extends Model
 
     public function criteria()
     {
-        return $this->belongsTo(Criteria::class, 'criteria_id');
+        return $this->belongsTo(Criterias::class, 'criteria_id');
     }
 }

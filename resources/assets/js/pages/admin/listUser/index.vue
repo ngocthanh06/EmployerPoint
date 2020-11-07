@@ -1,24 +1,10 @@
 <script>
+import { transError } from '../../../store/modules/helpers';
+
 export default {
     data() {
       return {
-        tableData:  [{
-          date: '2016-05-03',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles'
-        }, {
-          date: '2016-05-02',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles'
-        }, {
-          date: '2016-05-04',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles'
-        }, {
-          date: '2016-05-01',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles'
-        }]
+        tableData: []
       }
     },
 
@@ -26,7 +12,7 @@ export default {
     },
 
     created() {
-        this.$store.dispatch('admin/listUser');
+      this.listUser();
     },
 
     methods: {
@@ -37,7 +23,16 @@ export default {
           return 'success-row';
         }
         return '';
-      }
+      },
+
+      listUser() {
+        this.$store.dispatch('admin/listUser')
+          .then(response => {
+            this.tableData = response.data;
+          })
+      },
+
+     
     },
 
     template: require('./ListUser.html'),

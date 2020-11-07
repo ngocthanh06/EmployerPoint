@@ -26,6 +26,7 @@ router.beforeEach((to, from, next) => {
   const isAuthenticate = store.getters[ 'adminAuth/getIsAuthenticate' ];
   const onlyLoggedOut = to.matched.some(record => record.meta.onlyLoggedOut);
   const isPublic = to.matched.some(record => record.meta.public);
+  
   if (!isPublic && !isAuthenticate) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.

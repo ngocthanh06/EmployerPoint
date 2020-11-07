@@ -43,8 +43,9 @@ export default {
 
     login() {
       this.$store.dispatch( 'adminAuth/authenticate', this.ruleForm );
-
-         
+      if (this.getAdmin) {
+        this.$router.push({ name: 'ListUser' })
+      }
     }
   },
 

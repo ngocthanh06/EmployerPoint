@@ -1,6 +1,9 @@
 import content from '../../pages/admin/layouts/content';
 import listUser from '../../pages/admin/listUser/index.vue';
 import AddUser from '../../pages/admin/listUser/addUser';
+import ListPoint from '../../pages/admin/points/listPoint';
+import Point from '../../pages/admin/points/point';
+import EditUser from '../../pages/admin/listUser/editUser';
 
 const routes = [
   {
@@ -17,6 +20,24 @@ const routes = [
         path: 'add-user',
         name: 'AddUser',
         component: AddUser,
+      },
+
+      {
+        path: 'list-point',
+        name: 'ListPoint',
+        component: ListPoint,
+      },
+
+      {
+        path: 'point/:id',
+        name: 'point',
+        component: Point,
+      },
+
+      {
+        path: 'edit-user/:id',
+        name: 'EditUser',
+        component: EditUser
       }
     ]
   },

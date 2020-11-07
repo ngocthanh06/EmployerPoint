@@ -2,6 +2,7 @@ import Http from '../../../utils/Http';
 import { APP_AUTH_ADMIN } from '../../../config';
 import { transError } from '../../modules/helpers';
 import axios from 'axios';
+import { reject } from 'lodash';
 
 const state = {
   isAuthenticate: !!localStorage.getItem(APP_AUTH_ADMIN),
@@ -46,7 +47,10 @@ const actions = {
       new Http().authenticated(context.state.authType)
       .get('list-user')
         .then(response => {
-          console.log(response)
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error);
         });
     });
   },
@@ -55,10 +59,86 @@ const actions = {
     return new Promise((resolve, reject) => {
       new Http().authenticated(context.state.authType)
       .post('add-user', data)
-        .then(response => {
-          console.log(response)
+        .then((response) => {
+          if (response.status) {
+            resolve(true)
+          } else {
+            reject(transError(response.message));
+          }
+        })
+        .catch(error => {
+          reject(error);
         });
     });
+  },
+
+  editUser(context, data) {
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .post('edit-user', data)
+        .then((response) => {
+          if (response.status) {
+            resolve(true)
+          } else {
+            reject(transError(response.message));
+          }
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getPoint(context, data) {
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .get('get-point', data)
+        .then(response => {
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  },
+
+  getUser(context, data) {
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .get('get-user', data)
+        .then(response => {
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  },
+
+  getCriterias(context) {
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .get('get-criterias')
+        .then(response => {
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  },
+
+  successPoint(context, data) {
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .get('success-point', data)
+        .then(response => {
+          resolve(response)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
   }
 }
 

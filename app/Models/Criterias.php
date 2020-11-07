@@ -13,6 +13,6 @@ class Criterias extends Model
 
     public function point()
     {
-        return $this->hasOne(Point::class, 'id', 'criteria_id');
+        return $this->hasOne(Point::class);
     }
 }

@@ -5,6 +5,9 @@ namespace App\Models;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Http\Resources\UserProfileResource;
+use App\Enums\RoleStatus;
+
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -41,9 +44,19 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Point::class);
     }
 
+    public function roleProfile()
+    {
+        switch ($this->role_id) {
+            case RoleStatus::USER:
+                return new UserProfileResource($this->userProfile);
+            default:
+                return [];
+        }
+    }
+
     public function userProfile()
     {
-        $this->hasOne(UserProfile::class);
+        return $this->hasOne(UserProfile::class);
     }
 
     public function getJWTIdentifier()

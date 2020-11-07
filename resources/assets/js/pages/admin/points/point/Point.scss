@@ -1,0 +1,14 @@
+.criterias {
+    margin: 20px 0;
+}
+
+.point {
+    &--errors {
+        color: red;
+    }
+
+    &--success {
+        color: #67C23A
+    }
+    
+}
