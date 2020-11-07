@@ -1,4 +1,6 @@
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
 
   name: 'AdminLogin',
@@ -11,15 +13,21 @@ export default {
       },
 
       rules: {
-          // email: [
-          //   { required: true, message: 'Please input email', trigger: 'blur' },
-          //   { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
-          // ],
-          // password: [
-          //   { required: true, message: 'Please input password', trigger: 'blur' },
-          // ]
+          email: [
+            { required: true, message: 'Please input email', trigger: 'blur' },
+            { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
+          ],
+          password: [
+            { required: true, message: 'Please input password', trigger: 'blur' },
+          ]
         }
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      getAdmin: 'adminAuth/getAdmin'
+    })
   },
 
   methods: {
@@ -35,6 +43,9 @@ export default {
 
     login() {
       this.$store.dispatch( 'adminAuth/authenticate', this.ruleForm );
+      if (this.getAdmin) {
+        this.$router.push({ name: 'ListUser' })
+      }
     }
   },
 

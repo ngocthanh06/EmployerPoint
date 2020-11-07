@@ -14,7 +14,7 @@ class PointsController extends Controller
      */
     public function index()
     {
-        //
+        return 'thanh';
     }
 
     /**

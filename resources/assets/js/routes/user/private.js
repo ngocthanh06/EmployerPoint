@@ -1,15 +1,15 @@
-import AdminApp from '../../pages/admin/App.vue';
-import demo from '../../components/ExampleComponent.vue';
+import content from '../../pages/user/layouts/content';
+import home from '../../pages/user/home';
 
 const routes = [
   {
     path: '/',
-    component: AdminApp,
+    component: content,
     children: [
       {
-        path: 'demo',
-        component: demo,
-        name: 'demo'
+        path: 'home',
+        component: home,
+        name: 'home'
       }
     ]
   }

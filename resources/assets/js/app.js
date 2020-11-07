@@ -8,6 +8,7 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router';
 import router from './routes/user';
+import store from './store/user';
 import App from './App.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -33,6 +34,6 @@ const app = new Vue({
     el: '#app',
     router,
     components: { App },
-    // store,
+    store,
     template: '<app></app>'
 });

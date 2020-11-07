@@ -11,7 +11,7 @@ const routes = [
     path: '/homes',
     name: 'admin',
     component: example,
-  }
+  },
 ];
 
 export default routes.map(route => {

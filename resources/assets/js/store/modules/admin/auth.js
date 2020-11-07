@@ -37,7 +37,6 @@ const actions = {
       context.commit('setAdmin', admin);
       localStorage.setItem(APP_AUTH_ADMIN, token);
 
-      return true;
     })
 
   }

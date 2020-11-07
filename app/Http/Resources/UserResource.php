@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\UserProfileResource;
+
 
 class UserResource extends JsonResource
 {
@@ -18,9 +18,8 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'role_id' => $this->role_id,
-            'name' => $this->name,
-            'email' => $this->mail,
-            'userProfile' => new UserProfileResource($this->userProfile()),
+            'email' => $this->email,
+            'userProfile' => $this->roleProfile(),
         ];
     }
 }

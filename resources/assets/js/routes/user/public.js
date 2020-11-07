@@ -1,9 +1,8 @@
-import example from '../../components/ExampleComponent';
 import login from '../../pages/user/login';
 
 const routes = [
   {
-    path: '/admin/login',
+    path: '/login',
     name: 'login',
     component: login
   },
