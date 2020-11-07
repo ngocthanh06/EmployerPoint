@@ -82,7 +82,7 @@ class AuthenticateAdmin
 
     private function responseUserNotFound()
     {
-        return api_errors(config('code.user.admin_not_found'), [], 200, ['guard' => config('auth.guard_type.admin')]);
+        return api_errors(config('code.admin.admin_not_found'), [], 200, ['guard' => config('auth.guard_type.admin')]);
     }
 
     private function authenticateByToken($token)

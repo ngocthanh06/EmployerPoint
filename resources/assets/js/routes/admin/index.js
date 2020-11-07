@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
   }
 
   if (isAuthenticate && onlyLoggedOut || !to.matched.length) {
-    return next('/admin/test');
+    return next('/admin/list-user');
   }
   next();
 });

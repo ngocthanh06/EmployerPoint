@@ -6,9 +6,8 @@ export default {
     'login_facebook_failed': 704,
     'login_twitter_failed': 705,
     'user_not_found': 706,
-    'admin_not_found' : 708,
+    'shipper_not_found' : 708,
   },
-  
   'common': {
     'status_code_success': 200,
     'system_error': -1,

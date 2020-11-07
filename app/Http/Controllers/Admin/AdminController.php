@@ -17,6 +17,11 @@ class AdminController extends Controller
 
     public function listUser()
     {
-        return UserResource::collection($this->model->listUser());
+        return $this->model->listUser();
+    }
+
+    public function addUser(Request $request)
+    {
+        return $request;
     }
 }

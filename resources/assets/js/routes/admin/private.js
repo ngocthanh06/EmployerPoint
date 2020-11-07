@@ -1,5 +1,6 @@
 import content from '../../pages/admin/layouts/content';
 import listUser from '../../pages/admin/listUser/index.vue';
+import AddUser from '../../pages/admin/listUser/addUser';
 
 const routes = [
   {
@@ -10,6 +11,12 @@ const routes = [
         path: 'list-user',
         name: 'ListUser',
         component: listUser
+      },
+
+      {
+        path: 'add-user',
+        name: 'AddUser',
+        component: AddUser,
       }
     ]
   },

@@ -1,3 +1,4 @@
+import Http from '../../../utils/Http';
 import { APP_AUTH_ADMIN } from '../../../config';
 import { transError } from '../../modules/helpers';
 import axios from 'axios';
@@ -36,17 +37,28 @@ const actions = {
       context.commit('setIsAuthenticate', true);
       context.commit('setAdmin', admin);
       localStorage.setItem(APP_AUTH_ADMIN, token);
-
-      return true;
     })
 
   },
 
   listUser(context) {
-      axios.get('api/list-user')
-      .then(res => {
-          console.log(res);
-      })
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .get('list-user')
+        .then(response => {
+          console.log(response)
+        });
+    });
+  },
+
+  addUser(context, data) {
+    return new Promise((resolve, reject) => {
+      new Http().authenticated(context.state.authType)
+      .post('add-user', data)
+        .then(response => {
+          console.log(response)
+        });
+    });
   }
 }
 

@@ -15,7 +15,7 @@ class UserService extends BaseService
 
     public function listUser()
     {
-        return $this->model::all();
+        return $this->model->where('role_id', '!=' ,RoleStatus::ADMIN)->paginate(10);
     }
 
 }
